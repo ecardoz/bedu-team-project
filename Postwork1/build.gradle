@@ -1,0 +1,7 @@
+plugins {
+    id 'org.kordamp.gradle.markdown' version '2.2.0'
+}
+
+configurations {
+    markdownToHtml.all = 'true'
+}
