@@ -4,6 +4,7 @@
 
 
 Requerimientos: 
+
 Una cadena de helados muy famosa en el país ha solicitado tu ayuda para implementar una nueva versión de su sistema actual. Sus productos disponibles son los siguientes:
 
 - Helado Suave $30
