@@ -3,5 +3,5 @@ plugins {
 }
 
 application {
-    mainClassName = 'Application'
+    mainClass = "Heladeria"
 }
