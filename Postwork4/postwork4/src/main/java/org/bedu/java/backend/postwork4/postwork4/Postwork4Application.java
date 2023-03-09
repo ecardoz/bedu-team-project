@@ -1,5 +1,6 @@
 package org.bedu.java.backend.postwork4.postwork4;
 
+import org.bedu.java.backend.postwork4.postwork4.model.Persona;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
