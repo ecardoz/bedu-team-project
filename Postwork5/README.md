@@ -12,3 +12,7 @@
   4.	De al número de teléfono un formato de (##)-####-#### antes de imprimirlo en la consola.
 - Dicha implementación debe estar contenida en dos clases “servicio” que deben ser inyectada en la clase principal.
 ## Resultados
+
+
+https://user-images.githubusercontent.com/110861879/224384504-d44f3cbf-345e-42e9-b49e-69abeeb60f65.mp4
+
