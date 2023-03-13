@@ -27,3 +27,7 @@ Dicha implementación debe estar contenida en dos clases “servicio” que debe
 #####
 * La clase *ErrorManager* para el Manejo de los errores
 * La clase *Utils* con utilerias para las validaciones del numero de telefono
+
+
+https://user-images.githubusercontent.com/12447707/224785403-9e288a8c-eadf-4a5c-879a-9c35def1b5d3.mp4
+
