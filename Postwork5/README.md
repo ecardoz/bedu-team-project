@@ -1,18 +1,29 @@
-# Postwork 2 del curso Java Backend Basico
+# Postwork 5 del curso Java Backend Basico
 
-## Indicaciones
-Una cadena de helados muy famosa en el país ha solicitado tu ayuda para implementar una nueva versión de su sistema actual. Sus productos disponibles son los siguientes:
+## Tema: Inversión de Control (IoC) en Spring Boot
 
-* Helado Suave $30
-* Con Cobertura $20 extra
-* Con Granola $10 extra
-* Con Topping $20 extra
+### Indicaciones
+En el Postwork de la sesión anterior implementamos una línea de comandos que solicitaba un nombre y número de teléfono de una Persona.
 
-La cadena busca agregar nuevos extras:
+En esta ocasión tu misión será extender este programa para que la línea de comandos para que:
 
-* Con Mermelada $10 extra
-* Con Galleta $15 extra
+Valide que el número de teléfono solo contenga caracteres válidos: números, guion medio y espacio en blanco.
+Valide que el número de teléfono contenga 10 dígitos.
+Si se tiene un número válido, elimine todos los caracteres que no sean numéricos.
+De al número de teléfono un formato de (##)-####-#### antes de imprimirlo en la consola.
+Dicha implementación debe estar contenida en dos clases “servicio” que deben ser inyectada en la clase principal.
 
-La inclusión de estos productos complica el desarrollo del sistema actual debido a que habría que agregar todas las variantes de los productos viejos con los nuevos. Por lo tanto el sistema no es mantenible.
-
-Tú misión será crear la nueva versión del sistema utilizando el patrón Decorador de los patrones estructurales, así como un programa que permita probar la nueva implementación.
+### Solucion propuesta
+* **Dos modelos:**
+  * Persona - Establece la estructura de un objeto del tipo Persona
+  * Telefono - Establece la estructura de un objeto del tipo Telefono 
+#####
+* **Dos servicios:**
+  * PersonaService - Implementa el servicio que inyecta la dependencia de Persona
+  * TelefonoService - Implementa el servicio que inyecta la dependencia de Telefono <br>
+#####
+* **Una clase principal:**
+  * Main - Clase principal que inyecta las dependencias de PersonaService y TelefonoService
+#####
+* La clase *ErrorManager* para el Manejo de los errores
+* La clase *Utils* con utilerias para las validaciones del numero de telefono
