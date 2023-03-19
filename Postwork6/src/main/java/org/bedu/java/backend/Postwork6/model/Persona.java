@@ -1,9 +1,9 @@
-package com.bedu.java.backend.basico.Postwork5.model;
+package org.bedu.java.backend.Postwork6.model;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class Persona {
+public class Persona implements Comparable<Persona> {
     private String nombre;
     private Telefono telefono;
 
@@ -21,5 +21,21 @@ public class Persona {
 
     public void setTelefono(Telefono telefono) {
         this.telefono = telefono;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Persona persona = (Persona) obj;
+        return this.nombre.equals(persona.getNombre());
+    }
+
+    @Override
+    public int hashCode() {
+        return this.nombre.hashCode();
+    }
+
+    @Override
+    public int compareTo(Persona o) {
+        return this.nombre.compareTo(o.nombre);
     }
 }

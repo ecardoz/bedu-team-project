@@ -1,7 +1,7 @@
-package com.bedu.java.backend.basico.Postwork5.model;
+package org.bedu.java.backend.Postwork6.model;
 
-import com.bedu.java.backend.basico.Postwork5.ErrorManager;
-import com.bedu.java.backend.basico.Postwork5.Utils;
+import org.bedu.java.backend.Postwork6.errors.ErrorManager;
+import org.bedu.java.backend.Postwork6.utils.Utils;
 import org.springframework.stereotype.Component;
 
 @Component
