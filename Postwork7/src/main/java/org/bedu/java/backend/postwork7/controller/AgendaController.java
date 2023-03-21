@@ -2,7 +2,7 @@ package org.bedu.java.backend.postwork7.controller;
 
 import jakarta.validation.Valid;
 import org.bedu.java.backend.postwork7.model.Persona;
-import org.bedu.java.backend.postwork7.services.AgendaService;
+import org.bedu.java.backend.postwork7.service.AgendaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,27 +22,29 @@ public class AgendaController {
         this.agendaService = agendaService;
     }
 
-    @GetMapping({"/","/index"})
-    public String formularioRegistro (Model model){
+    @GetMapping({"/", "/index"})
+    public String formularioRegistro(Model model) {
         model.addAttribute("persona", new Persona());
         return "index";
     }
 
     @PostMapping("/registro")
-    public ModelAndView registra(@Valid Persona persona, Errors errors){
+    public ModelAndView registra(@Valid Persona persona, Errors errors) {
         agendaService.guardaPersona(persona);
         String vistaResultado = "listaContactos";
         String mensajeConfirmacion = "Contacto guardado correctamente";
 
-        if(errors.hasErrors()){
+        if (errors.hasErrors()) {
             vistaResultado = "index";
             mensajeConfirmacion = "Contacto no guardado";
         }
 
         ModelAndView mav = new ModelAndView(vistaResultado);
         mav.addObject("listaPersonas", agendaService.getPersonas());
-        if(!mensajeConfirmacion.isEmpty()){
+        if (!mensajeConfirmacion.isEmpty()) {
             mav.addObject("mensajeConfirmacion", mensajeConfirmacion);
         }
         return mav;
     }
+
+}
