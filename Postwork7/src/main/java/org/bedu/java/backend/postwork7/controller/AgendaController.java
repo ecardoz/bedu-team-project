@@ -1,39 +1,48 @@
 package org.bedu.java.backend.postwork7.controller;
 
+import jakarta.validation.Valid;
 import org.bedu.java.backend.postwork7.model.Persona;
-import org.bedu.java.backend.postwork7.service.AgendaService;
+import org.bedu.java.backend.postwork7.services.AgendaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import java.util.Set;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
-@RestController
-@RequestMapping("/api/v1/agenda")
-
+@Controller
 public class AgendaController {
     private final AgendaService agendaService;
 
 
     @Autowired
     public AgendaController(AgendaService agendaService) {
+
         this.agendaService = agendaService;
     }
 
-    @GetMapping
-    public ResponseEntity<Set<Persona>> getPersonas(){
-        return ResponseEntity.ok(agendaService.getPersonas());
+    @GetMapping({"/","/index"})
+    public String formularioRegistro (Model model){
+        model.addAttribute("persona", new Persona());
+        return "index";
     }
 
-    @PostMapping
-    public ResponseEntity<Persona> guardaPersona(@RequestBody Persona persona) {
-        Persona resultado = agendaService.guardaPersona(persona);
+    @PostMapping("/registro")
+    public ModelAndView registra(@Valid Persona persona, Errors errors){
+        agendaService.guardaPersona(persona);
+        String vistaResultado = "listaContactos";
+        String mensajeConfirmacion = "Contacto guardado correctamente";
 
-
-        if (resultado == null) {
-            return ResponseEntity.badRequest().build();
+        if(errors.hasErrors()){
+            vistaResultado = "index";
+            mensajeConfirmacion = "Contacto no guardado";
         }
 
-
-        return ResponseEntity.ok(resultado);
+        ModelAndView mav = new ModelAndView(vistaResultado);
+        mav.addObject("listaPersonas", agendaService.getPersonas());
+        if(!mensajeConfirmacion.isEmpty()){
+            mav.addObject("mensajeConfirmacion", mensajeConfirmacion);
+        }
+        return mav;
     }
-}
