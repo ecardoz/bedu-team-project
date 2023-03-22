@@ -26,5 +26,8 @@ En el Postwork de la sesión anterior continuamos con la implementación de nues
 ## Resultados
 
 
-https://user-images.githubusercontent.com/32680662/226775839-352a9e29-4c11-458c-bd03-2d8157de4f37.mp4
+
+
+
+https://user-images.githubusercontent.com/32680662/226788967-c2eda5ca-3054-4264-90a0-93ca68894547.mp4
 
