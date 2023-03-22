@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de contactos</title>
+  <style>
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<div th:if="${mensajeConfirmacion != null}" class="confirm-msg">
+  <span th:class="${#strings.contains(mensajeConfirmacion, 'error')} ? 'error' : 'success'" th:text="${mensajeConfirmacion}"></span>
+</div>
+<h3>Agenda: </h3>
+<ul>
+  <li th:each="registro : ${listaPersonas}" th:text="${ registro.getNombre() + ' ' + registro.getTelefono()}"  ></li>
+</ul>
+</body>
+</html>
