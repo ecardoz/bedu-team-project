@@ -15,7 +15,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class AgendaController {
     private final AgendaService agendaService;
 
-
     @Autowired
     public AgendaController(AgendaService agendaService) {
 
@@ -46,5 +45,4 @@ public class AgendaController {
         }
         return mav;
     }
-
 }
