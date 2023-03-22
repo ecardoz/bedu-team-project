@@ -23,6 +23,7 @@ public class AgendaMemoryDao {
         return persona;
     }
 
+
     public Set<Persona> getPersonas() {
         return personas;
     }
