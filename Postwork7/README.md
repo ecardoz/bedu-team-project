@@ -24,3 +24,7 @@ En el Postwork de la sesión anterior continuamos con la implementación de nues
 1. Contenga un formulario con validaciones y que permita agregar nuevos registros a la agenda.
 
 ## Resultados
+
+
+https://user-images.githubusercontent.com/32680662/226775839-352a9e29-4c11-458c-bd03-2d8157de4f37.mp4
+
