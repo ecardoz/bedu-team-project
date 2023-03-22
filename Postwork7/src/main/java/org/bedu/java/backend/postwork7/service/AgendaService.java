@@ -5,11 +5,11 @@ import org.bedu.java.backend.postwork7.model.Persona;
 import org.bedu.java.backend.postwork7.persistence.AgendaMemoryDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.Set;
 
 @Service
 public class AgendaService {
-
 
     private final ValidadorTelefono validadorTelefono;
     private final AgendaMemoryDao agendaDao;
@@ -33,4 +33,3 @@ public class AgendaService {
         return agendaDao.getPersonas();
     }
 }
-
