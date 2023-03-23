@@ -1,17 +1,34 @@
 package org.bedu.java.backend.postwork7.model;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
 import java.util.Objects;
 
+@Entity
+@Table(name = "personas")
 public class Persona implements Comparable<Persona>{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @NotBlank(message = "El nombre de la persona es un campo obligatorio.")
+    @Column(nullable = false, length = 80)
     private String nombre;
     @Pattern(regexp = "(\\d{2,4}[- .]?){2}\\d{4}$", message = "El teléfono debe tener el formato (##)-####-####")
+    @Column(nullable = false, length = 25)
     private String telefono;
 
     public Persona() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Persona(String nombre, String telefono) {
