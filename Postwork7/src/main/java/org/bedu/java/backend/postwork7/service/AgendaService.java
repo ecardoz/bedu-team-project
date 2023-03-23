@@ -2,34 +2,34 @@ package org.bedu.java.backend.postwork7.service;
 
 
 import org.bedu.java.backend.postwork7.model.Persona;
-import org.bedu.java.backend.postwork7.persistence.AgendaMemoryDao;
+import org.bedu.java.backend.postwork7.persistence.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.Set;
+import java.util.List;
 
 @Service
 public class AgendaService {
 
     private final ValidadorTelefono validadorTelefono;
-    private final AgendaMemoryDao agendaDao;
+    private final PersonaRepository personaRepository;
 
 
     @Autowired
-    public AgendaService(ValidadorTelefono validadorTelefono, AgendaMemoryDao agendaDao) {
+    public AgendaService(ValidadorTelefono validadorTelefono, PersonaRepository personaRepository) {
         this.validadorTelefono = validadorTelefono;
-        this.agendaDao = agendaDao;
+        this.personaRepository = personaRepository;
     }
 
 
     public Persona guardaPersona(Persona persona) {
         String telefono = validadorTelefono.limpiaNumero(persona.getTelefono());
         persona.setTelefono(telefono);
-        return agendaDao.guardaPersona(persona);
+        return personaRepository.save(persona);
     }
 
-
-    public Set<Persona> getPersonas() {
-        return agendaDao.getPersonas();
+    public List<Persona> getPersonas() {
+        return personaRepository.findAll(Sort.by("nombre"));
     }
 }
