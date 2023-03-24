@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 public class AgendaController {
     private final AgendaService agendaService;
@@ -29,7 +31,7 @@ public class AgendaController {
 
     @PostMapping("/registro")
     public ModelAndView registra(@Valid Persona persona, Errors errors) {
-        agendaService.guardaPersona(persona);
+        Persona personaDB = agendaService.guardaPersona(persona);
         String vistaResultado = "listaContactos";
         String mensajeConfirmacion = "Contacto guardado correctamente";
 
@@ -39,10 +41,19 @@ public class AgendaController {
         }
 
         ModelAndView mav = new ModelAndView(vistaResultado);
-        mav.addObject("listaPersonas", agendaService.getPersonas());
+        mav.addObject("persona", personaDB);
         if (!mensajeConfirmacion.isEmpty()) {
             mav.addObject("mensajeConfirmacion", mensajeConfirmacion);
         }
+        return mav;
+    }
+
+    @GetMapping("/directorio")
+    public ModelAndView directorioContacto() {
+        List<Persona> listaPersonas = agendaService.getPersonas();
+        ModelAndView mav = new ModelAndView("directorio-contactos");
+        mav.addObject("listaPersonas", listaPersonas);
+
         return mav;
     }
 }

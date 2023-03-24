@@ -2,23 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de contactos</title>
-    <style>
-        .error {
-            color: red;
-        }
-        .success {
-            color: green;
-        }
-    </style>
+    <title>Contacto guardado</title>
+    <link th:href="@{/css/header.css}" rel="stylesheet" />
 </head>
 <body>
+
+<div class="hero-image">
+    <div class="hero-text">
+        <h1>Guardandoi contacto</h1>
+    </div>
+</div>
+
 <div th:if="${mensajeConfirmacion != null}" class="confirm-msg">
     <span th:class="${#strings.contains(mensajeConfirmacion, 'error')} ? 'error' : 'success'" th:text="${mensajeConfirmacion}"></span>
 </div>
-<h3>Agenda: </h3>
+<h3>Contacto: </h3>
 <ul>
-    <li th:each="registro : ${listaPersonas}" th:text="${ registro.getNombre() + ' ' + registro.getTelefono()}"  ></li>
+    <li th:each="registro : ${persona}" th:text="${ registro.getNombre() + ' ' + registro.getTelefono()}"  ></li>
 </ul>
 </body>
 </html>
