@@ -3,22 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <title>Contacto guardado</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link th:href="@{/css/header.css}" rel="stylesheet" />
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+    <link th:href="@{/css/footer.css}" rel="stylesheet" />
 </head>
 <body>
-
-<div class="hero-image">
-    <div class="hero-text">
-        <h1>Guardandoi contacto</h1>
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1>Guardando contacto</h1>
+        </div>
     </div>
-</div>
 
-<div th:if="${mensajeConfirmacion != null}" class="confirm-msg">
-    <span th:class="${#strings.contains(mensajeConfirmacion, 'error')} ? 'error' : 'success'" th:text="${mensajeConfirmacion}"></span>
-</div>
-<h3>Contacto: </h3>
-<ul>
-    <li th:each="registro : ${persona}" th:text="${ registro.getNombre() + ' ' + registro.getTelefono()}"  ></li>
-</ul>
+    <main class="main-container">
+        <section class="main-container__section">
+            <div th:if="${mensajeConfirmacion != null}" class="confirm-msg">
+                <span th:class="${#strings.contains(mensajeConfirmacion, 'error')} ? 'error' : 'success'" th:text="${mensajeConfirmacion}"></span>
+            </div>
+            <h3 class="main-container__title">Contacto agregado: </h3>
+            <ul class="main-container__list">
+                <li
+                        class="main-container__list-item"
+                        th:each="registro : ${persona}"
+                        th:text="${ registro.getNombre() + ' ' + registro.getTelefono()}">
+                </li>
+            </ul>
+
+            <div>
+                <ul class="nav justify-content-start">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}" >Registrar contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/directorio}">Ver contactos</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <section class="footer__container">
+            <h1 class="footer__title">Equipo 1</h1>
+            <h2 class="footer__subtitle">Integrantes: </h2>
+            <ul class="footer__list">
+                <li class="footer__list-item">Alma Lovera</li>
+                <li class="footer__list-item">Angel Illescas</li>
+                <li class="footer__list-item">Daniel Maldonado</li>
+                <li class="footer__list-item">Edgar Casanova</li>
+                <li class="footer__list-item">Hiram Chavez</li>
+                <li class="footer__list-item">Sandra Bravo</li>
+            </ul>
+            <h2 class="footer__subtitle">Link al repositorio:</h2>
+            <a class="footer__link" href="https://github.com/ecardoz/bedu-team-project">
+                Github
+            </a>
+            <h2 class="footer__subtitle">Link al proyecto:</h2>
+            <a class="footer__link" href="https://agenda-bedu.herokuapp.com/">
+                agenda-bedu.herokuapp.com
+            </a>
+        </section>
+    </footer>
 </body>
 </html>

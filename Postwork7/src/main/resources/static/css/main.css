@@ -1,0 +1,40 @@
+.main-container {
+    display: flex;
+    justify-content: center;
+    color: #555555;
+    line-height: 30px;
+    min-height: calc(100% - 30%);
+}
+
+.main-container__section {
+    width: 50%;
+    padding: 1.5rem 1rem;
+}
+
+.main-container__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.main-container__list {
+    list-style: none;
+}
+
+.main-container__list-item {
+    display: flex;
+    font-size: 1.2rem;
+    color: #727272;
+}
+
+.list-item__name {
+    width: 230px;
+}
+
+.nav-link {
+    text-decoration: none;
+}
+
+.confirm-msg {
+    margin-bottom: 1.3rem;
+}

@@ -3,39 +3,68 @@
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link th:href="@{/css/header.css}" rel="stylesheet" />
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+    <link th:href="@{/css/footer.css}" rel="stylesheet" />
 
     <title>Agenda-Registro</title>
 </head>
 <body>
 
-<div class="hero-image">
-    <div class="hero-text">
-        <!--        <h1 style="font-size:35px"></h1>-->
-        <h1>Registro</h1>
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1>Registro</h1>
+        </div>
     </div>
-</div>
 
-<form class="form" th:action="@{/registro}" th:object="${persona}" method="post">
-    <div class="form-group">
-        <!--<label for="nombre">Nombre: </label>-->
-        <input placeholder="Nombre:" class="form-control" id="nombre" type="text" th:field="*{nombre}">
-        <div th:if="${#fields.hasErrors('nombre')}" th:errorclass="error" th:errors="*{nombre}"></div>
-    </div>
-    <div class="form-group">
-        <!--        <label for="telefono">Telefono: </label>-->
-        <input placeholder="Telefono:" class="form-control" id="telefono" type="text" th:field="*{telefono}">
-        <div th:if="${#fields.hasErrors('telefono')}" th:errorclass="error" th:errors="*{telefono}" ></div>
-    </div>
-    <input type="submit" class="btn btn-primary" th:value="Guardar"/>
-</form>
+    <main class="main-container">
+        <section class="main-container__section">
+            <p class="main-container__title">Agregar un contacto nuevo</p>
+            <form class="form" th:action="@{/registro}" th:object="${persona}" method="post">
+                <div class="form-group">
+                    <!--<label for="nombre">Nombre: </label>-->
+                    <input placeholder="Nombre:" class="form-control" id="nombre" type="text" th:field="*{nombre}">
+                    <div th:if="${#fields.hasErrors('nombre')}" th:errorclass="error" th:errors="*{nombre}"></div>
+                </div>
+                <div class="form-group">
+                    <!--        <label for="telefono">Telefono: </label>-->
+                    <input placeholder="Telefono:" class="form-control" id="telefono" type="text" th:field="*{telefono}">
+                    <div th:if="${#fields.hasErrors('telefono')}" th:errorclass="error" th:errors="*{telefono}" ></div>
+                </div>
+                <input type="submit" class="btn btn-primary" th:value="Guardar"/>
+            </form>
 
-<div>
-<!--    <a href="/agenda" class="badge badge-pill badge-success">Agenda</a>-->
-    <ul class="nav justify-content-start">
-        <li class="nav-item">
-            <a class="nav-link" th:href="@{/directorio}">Ver contactos</a>
-        </li>
-    </ul>
-</div>
+            <div>
+                <!--    <a href="/agenda" class="badge badge-pill badge-success">Agenda</a>-->
+                <ul class="nav justify-content-start">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/directorio}">Ver contactos</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <section class="footer__container">
+            <h1 class="footer__title">Equipo 1</h1>
+            <h2 class="footer__subtitle">Integrantes: </h2>
+            <ul class="footer__list">
+                <li class="footer__list-item">Alma Lovera</li>
+                <li class="footer__list-item">Angel Illescas</li>
+                <li class="footer__list-item">Daniel Maldonado</li>
+                <li class="footer__list-item">Edgar Casanova</li>
+                <li class="footer__list-item">Hiram Chavez</li>
+                <li class="footer__list-item">Sandra Bravo</li>
+            </ul>
+            <h2 class="footer__subtitle">Link al repositorio:</h2>
+            <a class="footer__link" href="https://github.com/ecardoz/bedu-team-project">
+                Github
+            </a>
+            <h2 class="footer__subtitle">Link al proyecto:</h2>
+            <a class="footer__link" href="https://agenda-bedu.herokuapp.com/">
+                agenda-bedu.herokuapp.com
+            </a>
+        </section>
+    </footer>
 </body>
 </html>
