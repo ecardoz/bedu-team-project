@@ -43,7 +43,7 @@ public class AgendaController {
         return mav;
     }
 
-    @GetMapping("/registro")
+    @GetMapping("/contactos")
     public ModelAndView verRegistros(){
         ModelAndView mav = new ModelAndView("listaContactos");
         mav.addObject("listaPersonas", agendaService.getPersonas());
