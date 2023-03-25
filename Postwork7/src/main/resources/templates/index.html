@@ -8,7 +8,7 @@
 <body>
 
 <div class="header">
-        <h1>Registro</h1>
+    <h1>Registro</h1>
 </div>
 <h2>Ingresa los datos de contacto</h2>
 <form class="form" th:action="@{/registro}" th:object="${persona}" method="post">
@@ -22,8 +22,14 @@
         <input placeholder="Telefono:" class="form-control" id="telefono" type="text" th:field="*{telefono}">
         <div th:if="${#fields.hasErrors('telefono')}" th:errorclass="error" th:errors="*{telefono}" ></div>
     </div>
-
-    <input type="submit" class="btn-save" th:value="Guardar"/>
+    <div class="btn-container">
+        <input type="submit" class="btn-save" th:value="Guardar"/>
+        <div class="btn-list">
+            <button class="see-list">
+                <a th:href="@{/registro}" class="see-btn">Ver contactos</a>
+            </button>
+        </div>
+    </div>
 </form>
 <footer>
     <div>
