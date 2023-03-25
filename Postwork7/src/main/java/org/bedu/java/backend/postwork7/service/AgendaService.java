@@ -32,4 +32,8 @@ public class AgendaService {
     public List<Persona> getPersonas() {
         return personaRepository.findAll(Sort.by("nombre"));
     }
+
+    public void deletePersona(Long id){
+        personaRepository.deleteById(id);
+    }
 }
