@@ -45,14 +45,14 @@ public class AgendaController {
         return mav;
     }
 
-    @GetMapping("/contacto/all")
+    @GetMapping("/registro")
     public ModelAndView verRegistros(){
         ModelAndView mav = new ModelAndView("listaContactos");
         mav.addObject("listaPersonas", agendaService.getPersonas());
         return mav;
     }
 
-    @GetMapping("/contacto/delete/{id}")
+    @GetMapping("/registro/delete/{id}")
     public ModelAndView deleteContacto(@PathVariable Long id){
         ModelAndView mav = new ModelAndView("listaContactos");
         mav.addObject("mensajeConfirmacion", "El contacto ha sido eliminado");
