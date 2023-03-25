@@ -16,7 +16,7 @@ public class Persona implements Comparable<Persona>{
     @NotBlank(message = "El nombre de la persona es un campo obligatorio.")
     @Column(nullable = false, length = 80)
     private String nombre;
-    @Pattern(regexp = "(\\d{2,4}[- .]?){2}\\d{4}$", message = "El teléfono debe tener el formato (##)-####-####")
+    @Pattern(regexp = "^((\\(\\d{3}\\))|\\d{3})[- .]?\\d{3}[- .]?\\d{4}$", message = "El teléfono debe tener el formato (##)-####-####")
     @Column(nullable = false, length = 25)
     private String telefono;
 
