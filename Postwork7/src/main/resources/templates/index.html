@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="index.css" />
+    <link th:href="@{/index.css}" rel="stylesheet" />
     <title>Agenda-Registro</title>
 </head>
 <body>
@@ -14,33 +14,33 @@
 <form class="form" th:action="@{/registro}" th:object="${persona}" method="post">
     <div class="form-group">
         <!--<label for="nombre">Nombre: </label>-->
-        <input placeholder="Nombre:" class="form-control" id="nombre" type="text" th:field="*{nombre}">
+        <input placeholder="Nombre" class="form-control" id="nombre" type="text" th:field="*{nombre}">
         <div th:if="${#fields.hasErrors('nombre')}" th:errorclass="error" th:errors="*{nombre}"></div>
     </div>
     <div class="form-group">
         <!--        <label for="telefono">Telefono: </label>-->
-        <input placeholder="Telefono:" class="form-control" id="telefono" type="text" th:field="*{telefono}">
+        <input placeholder="Telefono" class="form-control" id="telefono" type="text" th:field="*{telefono}">
         <div th:if="${#fields.hasErrors('telefono')}" th:errorclass="error" th:errors="*{telefono}" ></div>
     </div>
     <div class="btn-container">
         <input type="submit" class="btn-save" th:value="Guardar"/>
-        <div class="btn-list"> <!--
+        <div class="btn-list">
             <button class="see-list">
-                <a th:href="@{/contacto/all}" class="see-btn">Ver contactos</a>
-            </button> -->
+                <a th:href="@{/registro}" class="see-btn">Ver contactos</a>
+            </button>
         </div>
     </div>
 </form>
 <footer>
     <div>
-        <img src="./images/logo-bedu.svg">
+        <img th:src="@{/images/logo-bedu.svg}">
     </div>
     <div>
         <h5>Equipo 1</h5>
         <p>Curso Desarrollo Web Java-Fase2, Bedu 2023</p>
     </div>
     <div class="beto">
-        <img src="./images/beto.png">
+        <img th:src="@{/images/beto.png}">
     </div>
 </footer>
 </body>

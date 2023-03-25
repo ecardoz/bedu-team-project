@@ -76,5 +76,19 @@ a:link, a:visited, a:active {
     color: white;
 }
 
+  footer {
+      margin-top: 300px;
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      align-items: center;
+      background-color: #ddd;
+      padding: 50px;
+  }
+
+  .beto img {
+      width: 150px;
+  }
+
 
 
