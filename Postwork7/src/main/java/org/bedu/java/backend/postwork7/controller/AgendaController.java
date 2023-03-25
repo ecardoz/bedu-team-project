@@ -42,4 +42,11 @@ public class AgendaController {
         mav.addObject("mensajeConfirmacion", mensajeConfirmacion);
         return mav;
     }
+
+    @GetMapping("/registro")
+    public ModelAndView verRegistros(){
+        ModelAndView mav = new ModelAndView("listaContactos");
+        mav.addObject("listaPersonas", agendaService.getPersonas());
+        return mav;
+    }
 }
