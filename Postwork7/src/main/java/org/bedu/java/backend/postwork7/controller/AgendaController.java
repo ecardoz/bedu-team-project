@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -40,6 +42,21 @@ public class AgendaController {
         ModelAndView mav = new ModelAndView(vistaResultado);
         mav.addObject("listaPersonas", agendaService.getPersonas());
         mav.addObject("mensajeConfirmacion", mensajeConfirmacion);
+        return mav;
+    }
+
+    @GetMapping("/contacto/all")
+    public ModelAndView verRegistros(){
+        ModelAndView mav = new ModelAndView("listaContactos");
+        mav.addObject("listaPersonas", agendaService.getPersonas());
+        return mav;
+    }
+
+    @DeleteMapping("/contacto/delete/{id}")
+    public ModelAndView deleteContacto(@PathVariable Long id){
+        ModelAndView mav = new ModelAndView("listaContactos");
+        mav.addObject("mensajeConfirmacion", "El contacto ha sido eliminado");
+        agendaService.deletePersona(id);
         return mav;
     }
 }
