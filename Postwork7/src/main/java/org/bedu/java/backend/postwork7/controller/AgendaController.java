@@ -29,20 +29,17 @@ public class AgendaController {
 
     @PostMapping("/registro")
     public ModelAndView registra(@Valid Persona persona, Errors errors) {
-        agendaService.guardaPersona(persona);
         String vistaResultado = "listaContactos";
         String mensajeConfirmacion = "Contacto guardado correctamente";
-
         if (errors.hasErrors()) {
             vistaResultado = "index";
             mensajeConfirmacion = "Contacto no guardado";
+        }else{
+            agendaService.guardaPersona(persona);
         }
-
         ModelAndView mav = new ModelAndView(vistaResultado);
         mav.addObject("listaPersonas", agendaService.getPersonas());
-        if (!mensajeConfirmacion.isEmpty()) {
-            mav.addObject("mensajeConfirmacion", mensajeConfirmacion);
-        }
+        mav.addObject("mensajeConfirmacion", mensajeConfirmacion);
         return mav;
     }
 }
