@@ -41,7 +41,7 @@ class AgendaControllerTest {
     @Test
     void verRegistros() throws Exception {
         this.mockMvc
-                .perform(get("/contactos"))
+                .perform(get("/contacto/all"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("listaContactos"));
     }

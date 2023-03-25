@@ -19,8 +19,14 @@
     <div class="agenda-container">
         <h3>Agenda </h3>
         <ul class="list-group list-group-flush">
-            <li th:each="registro : ${listaPersonas}" th:text="${ registro.getNombre() + ' ' + registro.getTelefono()}"  class="list-group-item"></li>
+            <li th:each="registro : ${listaPersonas}"   class="list-group-item">
+                <span th:text="${ registro.getNombre() + ' ' + registro.getTelefono()}"></span>
+                <!-- <a th:href="@{/contacto/delete/{id}(id=${registro.id})}" > Eliminar </i></a> -->
+            </li>
+
+
         </ul>
+
 </div>
 <div class="btn-container">
 <button class="add-new">

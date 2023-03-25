@@ -52,11 +52,12 @@ public class AgendaController {
         return mav;
     }
 
-    @DeleteMapping("/contacto/delete/{id}")
+    @GetMapping("/contacto/delete/{id}")
     public ModelAndView deleteContacto(@PathVariable Long id){
         ModelAndView mav = new ModelAndView("listaContactos");
         mav.addObject("mensajeConfirmacion", "El contacto ha sido eliminado");
         agendaService.deletePersona(id);
+        mav.addObject("listaPersonas", agendaService.getPersonas());
         return mav;
     }
 }

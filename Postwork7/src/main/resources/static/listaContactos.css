@@ -34,6 +34,10 @@ border-radius: 20px;
 padding-top: 30px;
 }
 
+.list-group > a{
+    color: black;
+}
+
 .list-group-item{
 
         padding: 16px;
