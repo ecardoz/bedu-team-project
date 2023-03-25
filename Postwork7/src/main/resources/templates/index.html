@@ -2,65 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="index.css" />
     <title>Agenda-Registro</title>
-    <style>
-        .error {
-            color: red;
-        }
-        .form {
-            padding: 20px;
-        }
-        body, html {
-          height: 100%;
-          margin: 0;
-          font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .hero-image {
-          background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://raw.githubusercontent.com/thymeleaf/thymeleaf-org/main/artwork/thymeleaf%202016/thymeleaf_logo_white.png");
-          height: 25%;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: contain;
-          position: relative;
-        }
-
-        .hero-text {
-          text-align: center;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          color: white;
-        }
-
-        .hero-text button {
-          border: none;
-          outline: 0;
-          display: inline-block;
-          padding: 10px 25px;
-          color: black;
-          background-color: #ddd;
-          text-align: center;
-          cursor: pointer;
-        }
-
-        .hero-text button:hover {
-          background-color: #555;
-          color: white;
-        }
-    </style>
 </head>
 <body>
 
-<<div class="hero-image">
-    <div class="hero-text">
-        <!--        <h1 style="font-size:35px"></h1>-->
+<div class="header">
         <h1>Registro</h1>
-    </div>
 </div>
-
+<h2>Ingresa los datos de contacto</h2>
 <form class="form" th:action="@{/registro}" th:object="${persona}" method="post">
     <div class="form-group">
         <!--<label for="nombre">Nombre: </label>-->
@@ -72,7 +22,20 @@
         <input placeholder="Telefono:" class="form-control" id="telefono" type="text" th:field="*{telefono}">
         <div th:if="${#fields.hasErrors('telefono')}" th:errorclass="error" th:errors="*{telefono}" ></div>
     </div>
-    <input type="submit" class="btn btn-primary" th:value="Guardar"/>
+
+    <input type="submit" class="btn-save" th:value="Guardar"/>
 </form>
+<footer>
+    <div>
+        <img src="./images/logo-bedu.svg">
+    </div>
+    <div>
+        <h5>Equipo 1</h5>
+        <p>Curso Desarrollo Web Java-Fase2, Bedu 2023</p>
+    </div>
+    <div class="beto">
+        <img src="./images/beto.png">
+    </div>
+</footer>
 </body>
 </html>
