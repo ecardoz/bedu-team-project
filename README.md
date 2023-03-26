@@ -36,3 +36,11 @@ Como características extras agregamos un botón en la página inicial que permi
 La organización del proyecto consistió en que cada integrante del equipo creó una rama por cada postwork (del número 1 al 6), posteriormente se eligió únicamente una para realizar el merge en la rama <b>develop</b> a partir de la cual se generan las nuevas ramas para los postwork siguientes, después a partir del postwork número 7 se comenzó a trabajar de manera colaborativa en los dos postwork restantes para poder así obtener el proyecto final en donde todos estuvieramos involucrados activamente en todo el proceso. Al final, se hizo merge a la rama <b>main</b> para poder hacer el deploy del mismo.
 
 ## Producto final
+
+
+
+https://user-images.githubusercontent.com/97720817/227806183-d489b8b6-7afc-4746-b341-3e94ea579c1e.mp4
+
+
+
+
